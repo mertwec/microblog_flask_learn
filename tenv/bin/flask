@@ -1,4 +1,4 @@
-#!/home/kloom/walentin/microblog/tenv/bin/python3
+#!/home/kloom/walentin/microblog_flask_learn/tenv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

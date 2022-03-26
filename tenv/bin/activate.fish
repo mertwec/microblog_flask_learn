@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/kloom/walentin/microblog/tenv"
+set -gx VIRTUAL_ENV "/home/kloom/walentin/microblog_flask_learn/tenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
