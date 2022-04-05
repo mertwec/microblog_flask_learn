@@ -1,5 +1,6 @@
+
 from datetime import datetime
-from app import db, login, app
+from app import db, login, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
@@ -100,12 +101,12 @@ backref определяет, как эта связь будет доступн
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
-            app.config['SECRET_KEY'], algorithm='HS256')    #.decode('utf-8')
+            current_app.config['SECRET_KEY'], algorithm='HS256')    #.decode('utf-8')
 
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, app.config['SECRET_KEY'],
+            id = jwt.decode(token, current_app.config['SECRET_KEY'],
                             algorithms=['HS256'])['reset_password']
         except:
             return
@@ -119,6 +120,8 @@ def load_user(id):
 
 
 class Post(db.Model):
+    __tablename__ = 'post'
+    __searchable__ = ['body',]
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -126,4 +129,4 @@ class Post(db.Model):
     language = db.Column(db.String(5))
 
     def __repr__(self):
-        return f'<Post {self.body}>'
+        return f'<Post: {self.body}>'

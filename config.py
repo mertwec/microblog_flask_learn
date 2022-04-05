@@ -19,4 +19,11 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['admin@example.com']
 
+    # for search
+    MSEARCH_INDEX_NAME = 'msearch'
+    MSEARCH_BACKEND = 'whoosh'  # simple,whoosh,elaticsearch, default is simple
+    MSEARCH_PRIMARY_KEY = 'id'
+    MSEARCH_ENABLE = True    # auto create or update index
+    # MSEARCH_LOGGER = logging.DEBUG    # logger level, default is logging.WARNING
+    SQLALCHEMY_TRACK_MODIFICATIONS = True    # SQLALCHEMY_TRACK_MODIFICATIONS must be set to True when msearch auto index is enabled
 

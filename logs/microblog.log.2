@@ -1,0 +1,92 @@
+2022-03-28 19:19:36,719 ERROR: Exception on / [GET] [in /home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/kloom/walentin/microblog_flask_learn/app/main/route.py", line 45, in index
+    return render_template('index.html', title='Home',
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
+    return _render(
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/templating.py", line 128, in _render
+    rv = template.render(context)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/base.html", line 53, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/index.html", line 11, in block 'app_content'
+    {% include '_post.html' %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/_post.html", line 4, in top-level template code
+    <a href="{{ url_for('user', username=post.author.username) }}">
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/helpers.py", line 325, in url_for
+    rv = url_adapter.build(
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/werkzeug/routing.py", line 2315, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['username']. Did you mean 'main.user' instead?
+2022-03-28 19:22:50,270 INFO: Microblog startup [in /home/kloom/walentin/microblog_flask_learn/app/__init__.py:57]
+2022-03-28 19:22:54,181 ERROR: Exception on / [GET] [in /home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/kloom/walentin/microblog_flask_learn/app/main/route.py", line 45, in index
+    return render_template('index.html', title='Home',
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
+    return _render(
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask/templating.py", line 128, in _render
+    rv = template.render(context)
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/base.html", line 53, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/index.html", line 11, in block 'app_content'
+    {% include '_post.html' %}
+  File "/home/kloom/walentin/microblog_flask_learn/app/templates/_post.html", line 16, in top-level template code
+    <a href="#">{{ _('Translate') }}</a>
+  File "/home/kloom/walentin/microblog_flask_learn/tenv/lib/python3.8/site-packages/jinja2/utils.py", line 84, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: '_' is undefined
+2022-03-28 19:24:04,145 INFO: Microblog startup [in /home/kloom/walentin/microblog_flask_learn/app/__init__.py:57]
