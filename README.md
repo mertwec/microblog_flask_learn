@@ -134,7 +134,7 @@ prev_num: номер страницы для предыдущей страниц
 
 
 
-| нтересный аспект функции url_for() заключается в том,
+| интересный аспект функции url_for() заключается в том,
 | что вы можете добавить к нему любые аргументы ключевого слова, и если имена этих
 | аргументов напрямую не указаны в URL-адресе, тогда Flask будет включать их в URL-
 | адрес как аргументы запроса.
@@ -374,17 +374,63 @@ Ajax означает Асинхронный JavaScript и XML. В основе 
 
 16 search
 
+    pip install flask-msearch
+    # when MSEARCH_BACKEND = "whoosh"
+    pip install whoosh blinker
+
+
+Quickstart
+    from flask_msearch import Search
+    [...]
+    search = Search()
+    search.init_app(app)
+
+    # models.py
+    class Post(db.Model):
+        __tablename__ = 'post'
+        __searchable__ = ['title', 'content']
+
+Config
+    # when backend is elasticsearch, MSEARCH_INDEX_NAME is unused
+    # flask-msearch will use table name as elasticsearch index name unless set __msearch_index__
+    MSEARCH_INDEX_NAME = 'msearch'
+    # simple,whoosh,elaticsearch, default is simple
+    MSEARCH_BACKEND = 'whoosh'
+    # table's primary key if you don't like to use id, or set __msearch_primary_key__ for special model
+    MSEARCH_PRIMARY_KEY = 'id'
+    # auto create or update index
+    MSEARCH_ENABLE = True
+    # logger level, default is logging.WARNING
+    MSEARCH_LOGGER = logging.DEBUG
+    # SQLALCHEMY_TRACK_MODIFICATIONS must be set to True when msearch auto index is enabled
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 
+if raise sqlalchemy ValueError,please pass db param to Search
+
+db = SQLalchemy()
+search = Search(db=db)
+
+Create_index
+    search.create_index()
+    search.create_index(Post)
+Update_index
+    search.update_index()
+    search.update_index(Post)
+    # or
+    search.create_index(update=True)
+    search.create_index(Post, update=True)
+Delete_index
+    search.delete_index()
+    search.delete_index(Post)
+    # or
+    search.create_index(delete=True)
+    search.create_index(Post, delete=True)
 
 
-
-
-
-
-
-
+query:
+    Post.query.msearch('searchable text').all()
 
 
 
